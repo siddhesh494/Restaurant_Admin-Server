@@ -1,5 +1,6 @@
 import { MESSAGE_CODE } from "../config/message-code"
 import { RestaurantDetailsDA } from "../dal/mongo/restaurantDetails"
+import { CreateRestaurant, UpdateRestaurant } from "../interface/restaurant"
 import { createLogger } from "../utils/create-logger"
 import { safePromise } from "../utils/require-helpers"
 
@@ -10,13 +11,12 @@ class RestaurantService {
   private restaurantDetailsDA = new RestaurantDetailsDA()
   constructor() {
     this.create = this.create.bind(this)
-
   }
 
-  public async create(data:any): Promise<any> {
+  public async create(data: CreateRestaurant): Promise<any> {
     const functionName = "create"
 
-    const insertObj:any = {
+    const insertObj:CreateRestaurant = {
       restaurantName: data.restaurantName,
       description: data.description,
       location: data.location,
@@ -56,7 +56,7 @@ class RestaurantService {
   public async update(data:any): Promise<any> {
     const functionName = "update"
 
-    const updateObj:any = {
+    const updateObj:UpdateRestaurant = {
       restaurantName: data.updateData.restaurantName,
       description: data.updateData.description,
       location: data.updateData.location,
@@ -68,7 +68,7 @@ class RestaurantService {
       updateObj.menu = data.updateData.menu
     }
 
-    const [err, res] = await safePromise(this.restaurantDetailsDA.update(data.id, updateObj))
+    const [err, ] = await safePromise(this.restaurantDetailsDA.update(data.id, updateObj))
     if(err) {
       log.error(functionName, "Error while deleting the restaurant details", err)
       return Promise.reject({
