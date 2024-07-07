@@ -3,10 +3,17 @@
 - nvm - v0.39.7
 - React - v18.3.1
 
+## Demo Video
+
+
+https://github.com/siddhesh494/Restaurant_Admin-Server/assets/55457467/2fd88e3d-6573-435f-8357-62ff930a4c9f
+
+
+
 ## To run the application 
 Note: To run this application you have to run the [Backend application](https://github.com/siddhesh494/Restaurant_Admin-Server) first and then run [Frontend application](https://github.com/siddhesh494/Restaurant_Admin-Web).
 
-Befor running both the application use `npm install` or `yarn install` to install the dependent packages.
+Before running both the applications use `npm install` or `yarn install` to install the dependent packages.
 
 ### To run the Backend application use command
 ```
